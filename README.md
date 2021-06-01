@@ -36,7 +36,7 @@
     - 여기서는 200인지 아닌지 검증
 
 `.andExpect(content().string(hello))`
-    - mvc.perform의 결과 검증
+    - `mvc.perform`의 결과 검증
     - 응답 본문 내용 검증
 
 `@Getter`
@@ -52,7 +52,7 @@
 
 `isEqualTo`
     - assertj의 동등 비교 메소드
-    - assertThat에 있는 값과 isEqualTo 값을 비교해서 같을 때만 성공
+    - assertThat에 있는 값과 `isEqualTo` 값을 비교해서 같을 때만 성공
 
 `@RequestParam`
     - 외부에서 API로 넘긴 파라미터를 가져옴
@@ -64,3 +64,49 @@
 `jsonPath`
     - JSON 응답값을 필드별로 검증할 수 있는 메소드
     - $를 기준으로 필드명 명시 
+
+`spring-boot-starter-data-jpa`
+    - 스프링 부트용 `Spring Data Jpa` 추상화 라이브러리
+    - 스프링 부트 버전에 맞게 자동으로 JPA관련 라이브러리 버전 관리
+
+`h2`
+    - 인메모리 관계형 데이터베이스
+    - 프로젝트 의존성만으로 관리 가능
+    - 애플리케이션 재시작시 초기화 -> 테스트용
+
+`@Entity`
+    - 테이블과 링크될 클래스
+    - Entity 클래스에서는 절대 `Setter` 메소드를 만들지 않음
+    - 클래스의 camelCase 이름을 Snake_Case로 매칭
+
+`@Id`
+    - 해당 테이블의 PK필드
+
+`@GeneratedValue`
+    - PK 생성 규칙
+    - 스프링 부트 2.0에서는 `Generation Type.IDENTITY` 옵션을 추가해야만 `auto_increment`
+
+`@Column`
+    - 테이블의 칼럼
+
+`@NoArgsConstructor`
+    - 기본 생성자 자동 추가
+    - `public Posts() {}`와 같은 효과
+
+`@Getter`
+    - 클래스 내 모든 필드의 Getter 메소드를 자동생성
+
+`@Builder`
+    - 해당 클래스의 빌더 패턴 클래스 생성
+
+`@After`
+    - Junit에서 단위 테스트가 끝날 때마다 수행되는 메소드 지정
+    - 배포 전 전체 테스트를 수행할 떄 테스트 간 데이터 침범을 막기 위해 사용
+    - 여러 테스트가 동시에 실행되면 H2에 데이터가 그대로 남아있어 다음 테스트 실행 시 테스트가 실패할 수 있음
+
+`postsRepository.save`
+    - 테이블 posts에 insert/update 쿼리 실행
+    - id 값이 있다면 update가, 없다면 insert 쿼리 실행
+
+`postsRepository.findAll`
+    - 테이블 posts에 있는 모든 데이터 조회
