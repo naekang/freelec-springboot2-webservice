@@ -110,3 +110,28 @@
 
 `postsRepository.findAll`
     - 테이블 posts에 있는 모든 데이터 조회
+
+### Spring 웹 계층
+
+##### __Web Layer__
+- `@Controller`와 `JSP/Freemarker`등의 뷰 템플릿 영역
+- 외부 요청과 응답에 대한 전반적인 영역
+
+##### __Service Layer__
+- `@Service`에 사용되는 서비스 영역
+- 일반적으로 `Controller`와 `Dao`의 중간 영역에서 사용
+- `@Transactional`이 사용되어야 하는 영역
+
+##### __Repository Layer__
+- `Database`와 같이 데이터 저장소에 접근하는 영역
+- `Dao(Data Access Object)`영역
+
+##### __Dtos__
+- Dto(Data Transfer Object)는 계층 간 데이터 교환을 위한 객체
+- 뷰 템플릿 엔진에서 사용될 객체나 Repository Layer에서 결과로 넘겨준 객체
+
+##### __Domain Model__
+- 도메인이라 불리는 개발 대상을 모든 사람이 동일한 관점에서 이해할 수 있고 공유할 수 있도록 단순화시킨 것을 도메인 모델이라고 함
+- `@Entity`가 사용된 영역 역시 도메인 모델
+- 무조건 DB Tabler과 관계가 있는 것은 아님
+- `VO`처럼 값 객체들도 도메인 모델 영역
