@@ -111,6 +111,18 @@
 `postsRepository.findAll`
     - 테이블 posts에 있는 모든 데이터 조회
 
+`@MappedSuperclass`
+- JPA Entity 클래스들이 BaseTimeEntity를 상속할 경우 필드들(createdDate, modifiedDate)도 칼럼으로 인식
+
+`@EntityListeners(AuditingEntityListener.class)`
+- BaseTimeEntity 클래스에 Auditing 기능 포함
+
+`@CreatedDate`
+- Entity가 생성되어 저장될 때 시간이 자동 저장
+
+`@LastModifiedDate`
+- 조회한 Entity의 값을 변경할 때 시간이 자동 저장
+
 ### Spring 웹 계층
 
 ##### __Web Layer__
