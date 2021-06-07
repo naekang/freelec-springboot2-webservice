@@ -1,10 +1,9 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.7.RELEASE'
+        springBootVersion = '2.1.5.RELEASE'
     }
     repositories {
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -33,9 +32,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-mustache')
     compile('pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.1')
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.session:spring-session-jdbc')
     testCompile('org.springframework.boot:spring-boot-starter-test')
-}
-
-test {
-    useJUnitPlatform()
+    testCompile("org.springframework.security:spring-security-test")
 }
